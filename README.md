@@ -1,4 +1,4 @@
-# CECS-351-Term-Project - AI Semantic Email Search
+# CECS-451-Term-Project - AI Semantic Email Search
 CECS 451 - SEC 01 | Professor Ju Cheol Moon | Group 20
 
 Mia Carter, Belle Lopez, Cristina Le, Mya Barragan
