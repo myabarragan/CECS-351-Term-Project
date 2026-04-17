@@ -1,0 +1,6 @@
+# Sensitive files
+token.pickle
+credentials.json
+.env
+*.json
+src/api_tests/token.json
