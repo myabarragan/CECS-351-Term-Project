@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="page-label">Email</div>
+  <div class="container">
+    <div class="email-container">
+      <button class="back-btn" onclick="history.back()">← Back</button>
+      <div class="email-card" id="emailCard">
+        <div class="empty-state">Loading...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <script>
+    setupEmailPage();
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Assistant Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="page-label">Email Assistant Chatbot</div>
+  <div class="container">
+    <div class="chat-card">
+      <div class="chat-header">
+        <h1>AI Email Assistant</h1>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">What email are you looking for?</div>
+      </div>
+
+      <div class="chat-input-row">
+        <input type="text" id="queryInput" placeholder="Type your message..." autofocus>
+        <button class="btn-primary" id="searchBtn">View Results</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <script>
+    setupChatPage();
+  </script>
+</body>
+</html>

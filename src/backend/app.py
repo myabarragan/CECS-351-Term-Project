@@ -1,24 +1,53 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from src.embeddings.vector_store import search_emails
 import json
+import os
 
-app = Flask(__name__)
+#directories to frontend folders
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR = os.path.join(BASE_DIR, "frontend", "templates")
+STATIC_DIR = os.path.join(BASE_DIR, "frontend", "static")
+
+app = Flask(
+    __name__,
+    template_folder=TEMPLATE_DIR,
+    static_folder=STATIC_DIR
+)
+
 
 # Load emails.json by searching and storing emails into a dictionary keyed by email ID
 with open("data/emails.json", "r") as f:
     EMAILS = {email["id"]: email for email in json.load(f)}
 
+#page routes for HTML
+@app.route("/")
+def login_page():
+    return render_template("login.html")
+
+@app.route("/chat")
+def chat_page():
+    return render_template("chat.html")
+
+@app.route("/results")
+def results_page():
+    return render_template("results.html")
+
+@app.route("/email-view/<email_id>")
+def email_page(email_id):
+    return render_template("email.html")
+
+# API routes that return JSON format
 #gets query parameter from the url as "/search?query="hungry" -> param = hungry
-@app.route("/search")
+@app.route("/api/search")
 def search(): 
     query = request.args.get("query", "")
     if not query: #error handling if no query
         return jsonify({"error": "Missing query"}), 400
 
     results = search_emails(query, top_k=5) #uses search_emails.py to find the top 5 matching emails
-    return jsonify(results) #returns in JSON format!
+    return jsonify({"query": query, "results": results}) #returns in JSON format!
 
-@app.route("/email/<email_id>") #search by email ID
+@app.route("/api/email/<email_id>") #search by email ID
 def get_email(email_id):
     email = EMAILS.get(email_id)
     if not email:

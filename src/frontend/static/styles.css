@@ -1,0 +1,249 @@
+/* Base reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f5f5f5;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+.page-label {
+  padding: 20px 30px;
+  color: #b0b0b0;
+  font-size: 18px;
+}
+
+.container {
+  background: #f9fafb;
+  min-height: calc(100vh - 60px);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Orange button (shared across screens) */
+.btn-primary {
+  background: #ff9966;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary:hover { background: #ff8855; }
+.btn-primary:disabled { background: #ffc2a8; cursor: not-allowed; }
+
+/* LOGIN SCREEN */
+.login-card {
+  background: white;
+  border-radius: 8px;
+  padding: 40px 50px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  width: 400px;
+  margin-top: 120px;
+}
+
+.login-card h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.login-card .subtitle {
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff9966;
+}
+
+.login-card .btn-primary { width: 100%; margin-top: 10px; }
+
+/*CHAT SCREEN*/
+.chat-card {
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 900px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.chat-header {
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.chat-header h1 { font-size: 22px; font-weight: 600; }
+
+.chat-messages {
+  flex: 1;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.message.bot {
+  background: #e8e8e8;
+  color: #1a1a1a;
+  align-self: flex-start;
+}
+
+.message.user {
+  background: #ff9966;
+  color: white;
+  align-self: flex-end;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 10px;
+  padding: 20px 25px;
+  border-top: 1px solid #eee;
+}
+
+.chat-input-row input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.chat-input-row input:focus {
+  outline: none;
+  border-color: #ff9966;
+}
+
+/*RESULTS SCREEN */
+.results-container {
+  background: #f9fafb;
+  width: 100%;
+  max-width: 900px;
+  padding: 30px 40px;
+  border-radius: 8px;
+}
+
+.results-container h1 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.result-card {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.result-card:hover { border-color: #ff9966; }
+
+.result-card .field {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.result-card .field strong { margin-right: 4px; }
+
+.result-card .snippet {
+  color: #777;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+}
+
+/* EMAIL DETAIL SCREEN */
+.email-container {
+  background: #f9fafb;
+  width: 100%;
+  max-width: 900px;
+  padding: 30px 40px;
+  border-radius: 8px;
+}
+
+.back-btn {
+  background: #ff9966;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover { background: #ff8855; }
+
+.email-card {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 30px 35px;
+}
+
+.email-meta {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.email-meta .field {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.email-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+}

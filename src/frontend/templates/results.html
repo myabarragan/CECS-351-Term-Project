@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="page-label">Search Results</div>
+  <div class="container">
+    <div class="results-container">
+      <h1 id="resultsHeading">Search Results</h1>
+      <div id="resultsList"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+  <script>
+    setupResultsPage();
+  </script>
+</body>
+</html>
