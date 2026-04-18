@@ -110,4 +110,4 @@ Mia Carter - UI/UX design
 
 Mya Barragan - UI/UX design, UI documentation, Github README.md
 
-Belle Lopez - 
+Belle Lopez - Data cleaning, Embeddings, and Semantic Search Functionality
