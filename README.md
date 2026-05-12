@@ -102,6 +102,16 @@ Target users: Professionals, students, recruiters, managers, and anyone managing
 
 Productivity Software / Enterprise SaaS - Email remains one of the most widely used communication tools globally. While platforms like Gmail and Microsoft Outlook have integrated AI (Microsoft Copilot, Gemini) for content generation and summarization, no major solution focuses on semantic retrieval across an entire inbox. This project targets that specific, underserved gap.
 
+**To Run**
+1. Create virtual environment using python3 -m venv venv && source venv/bin/activate
+2. Install dependencies using pip install -r requirements.txt
+3. Create .env file at the project root to store your API key (refer to .env.example for correct format)
+4. Run python3 -m src.gmail_api.fetch_emails to fetch emails (will use OAuth for consent)
+5. Run python3 -m src.embeddings.ember_emails to build vector index
+6. Run python3 -m src.backend.app and open local host link
+7. Search for some emails!
+
+
 **Team Contribution**
 
 Cristina Le - Gmail API, Google Cloud integration, OpenAI API connection

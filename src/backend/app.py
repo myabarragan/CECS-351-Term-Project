@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from src.embeddings.vector_store import search_emails
 import json
 import os
+from src.embeddings.text_cleaning import clean_email_body
 
 #directories to frontend folders
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -52,8 +53,11 @@ def get_email(email_id):
     email = EMAILS.get(email_id)
     if not email:
         return jsonify({"error": "Email not found"}), 404
+    
+    cleaned = dict(email)
+    cleaned["body"] = clean_email_body(email.get("body", ""))
 
-    return jsonify(email) #returns in JSON format
+    return jsonify(cleaned) #returns in JSON format #return the copy to leve in memory data untouched
 
 if __name__ == "__main__":
     app.run(debug=True)
